@@ -74,25 +74,22 @@ for i, job_title in enumerate(job_titles):
 plt.show()
 ```
 Results
-<img width="631" alt="Screenshot 2025-03-03 at 4 16 16 PM" src="https://github.com/user-attachments/assets/29f2a280-0d24-45a1-845c-4bacf4600aef" />
 
-Likelihood of Skills Requested in the US Job Postings
+<img width="631" alt="Screenshot 2025-03-03 at 4 16 16 PM" src="https://github.com/user-attachments/assets/29f2a280-0d24-45a1-845c-4bacf4600aef" />
 
 Bar graph visualizing the salary for the top 3 data roles and their top 5 skills associated with each.
 
-Insights:
+### Insights:
 
-SQL is the most requested skill for Data Analysts and Data Scientists, with it in over half the job postings for both roles. For Data Engineers, Python is the most sought-after skill, appearing in 68% of job postings.
-Data Engineers require more specialized technical skills (AWS, Azure, Spark) compared to Data Analysts and Data Scientists who are expected to be proficient in more general data management and analysis tools (Excel, Tableau).
-Python is a versatile skill, highly demanded across all three roles, but most prominently for Data Scientists (72%) and Data Engineers (65%).
-2. How are in-demand skills trending for Data Analysts?
+- SQL is the most requested skill for Data Analysts and Data Scientists, with it in over half the job postings for both roles. For Data Engineers, Python is the most sought-after skill, appearing in 68% of job postings.
+- Data Engineers require more specialized technical skills (AWS, Azure, Spark) compared to Data Analysts and Data Scientists who are expected to be proficient in more general data management and analysis tools (Excel, Tableau).
+- Python is a versatile skill, highly demanded across all three roles, but most prominently for Data Scientists (72%) and Data Engineers (65%).
+# 2. How are in-demand skills trending for Data Analysts?
 
 To find how skills are trending in 2023 for Data Analysts, I filtered data analyst positions and grouped the skills by the month of the job postings. This got me the top 5 skills of data analysts by month, showing how popular skills were throughout 2023.
 
-View my notebook with detailed steps here: 3_Skills_Trend.
-
-Visualize Data
-
+### Visualize Data
+```
 from matplotlib.ticker import PercentFormatter
 
 df_plot = df_DA_US_percent.iloc[:, :5]
@@ -101,32 +98,34 @@ sns.lineplot(data=df_plot, dashes=False, legend='full', palette='tab10')
 plt.gca().yaxis.set_major_formatter(PercentFormatter(decimals=0))
 
 plt.show()
-Results
+```
+### Results
 
-Trending Top Skills for Data Analysts in the US
+<img width="631" alt="Screenshot 2025-03-03 at 4 16 16 PM" src="https://github.com/user-attachments/assets/e3f3fb1b-8463-4e4b-9e7f-4d5c795de6ef" />
 Bar graph visualizing the trending top skills for data analysts in the US in 2023.
 
-Insights:
+## Insights:
 
-SQL remains the most consistently demanded skill throughout the year, although it shows a gradual decrease in demand.
-Excel experienced a significant increase in demand starting around September, surpassing both Python and Tableau by the end of the year.
-Both Python and Tableau show relatively stable demand throughout the year with some fluctuations but remain essential skills for data analysts. Power BI, while less demanded compared to the others, shows a slight upward trend towards the year's end.
-3. How well do jobs and skills pay for Data Analysts?
+- SQL remains the most consistently demanded skill throughout the year, although it shows a gradual decrease in demand.
+- Excel experienced a significant increase in demand starting around September, surpassing both Python and Tableau by the end of the year.
+- Both Python and Tableau show relatively stable demand throughout the year with some fluctuations but remain essential skills for data analysts. Power BI, while     less demanded compared to the others, shows a slight upward trend towards the year's end.
+# 3. How well do jobs and skills pay for Data Analysts?
 
 To identify the highest-paying roles and skills, I only got jobs in the United States and looked at their median salary. But first I looked at the salary distributions of common data jobs like Data Scientist, Data Engineer, and Data Analyst, to get an idea of which jobs are paid the most.
 
-View my notebook with detailed steps here: 4_Salary_Analysis.
 
-Visualize Data
-
+### Visualize Data
+```
 sns.boxplot(data=df_US_top6, x='salary_year_avg', y='job_title_short', order=job_order)
 
 ticks_x = plt.FuncFormatter(lambda y, pos: f'${int(y/1000)}K')
 plt.gca().xaxis.set_major_formatter(ticks_x)
 plt.show()
-Results
+```
+### Results
 
-Salary Distributions of Data Jobs in the US
+<img width="631" alt="Screenshot 2025-03-03 at 4 16 16 PM" src="https://github.com/user-attachments/assets/7b0d0956-4819-448d-a224-f9d0f4a3132b" />
+
 Box plot visualizing the salary distributions for the top 6 data job titles.
 
 Insights
