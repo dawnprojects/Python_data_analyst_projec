@@ -46,23 +46,24 @@ df = dataset['train'].to_pandas()
 df['job_posted_date'] = pd.to_datetime(df['job_posted_date'])
 df['job_skills'] = df['job_skills'].apply(lambda x: ast.literal_eval(x) if pd.notna(x) else x)
 ```
-# Filter US Jobs
+## Filter US Jobs
 
 To focus my analysis on the U.S. job market, I apply filters to the dataset, narrowing down to roles based in the United States.
-
+```
 df_US = df[df['job_country'] == 'United States']
-The Analysis
+```
+# The Analysis
 
 Each Jupyter notebook for this project aimed at investigating specific aspects of the data job market. Here’s how I approached each question:
 
-1. What are the most demanded skills for the top 3 most popular data roles?
+# 1. What are the most demanded skills for the top 3 most popular data roles?
 
 To find the most demanded skills for the top 3 most popular data roles. I filtered out those positions by which ones were the most popular, and got the top 5 skills for these top 3 roles. This query highlights the most popular job titles and their top skills, showing which skills I should pay attention to depending on the role I'm targeting.
 
-View my notebook with detailed steps here: 2_Skill_Demand.
 
-Visualize Data
 
+### Visualize Data
+```
 fig, ax = plt.subplots(len(job_titles), 1)
 
 
@@ -71,7 +72,9 @@ for i, job_title in enumerate(job_titles):
     sns.barplot(data=df_plot, x='skill_percent', y='job_skills', ax=ax[i], hue='skill_count', palette='dark:b_r')
 
 plt.show()
+```
 Results
+<img width="631" alt="Screenshot 2025-03-03 at 4 16 16 PM" src="https://github.com/user-attachments/assets/29f2a280-0d24-45a1-845c-4bacf4600aef" />
 
 Likelihood of Skills Requested in the US Job Postings
 
